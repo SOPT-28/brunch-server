@@ -1,27 +1,16 @@
-// import mongoose from "mongoose";
-// import { IUser } from "../interfaces/IUser";
+import mongoose from "mongoose";
+import { IKeyword } from "../interfaces/IKeyword";
 
-// const UserSchema = new mongoose.Schema({
-//   name: {
-//     type: String,
-//     required: true,
-//   },
-//   email: {
-//     type: String,
-//     required: true,
-//     unique: true,
-//   },
-//   password: {
-//     type: String,
-//     required: true,
-//   },
-//   avatar: {
-//     type: String,
-//   },
-//   date: {
-//     type: Date,
-//     default: Date.now,
-//   },
-// });
+const KeywordSchema = new mongoose.Schema({
+  keyword: {
+    type: String,
+    required: true,
+  },
+  new: {
+    type: Boolean,
+    required: true,
+  },
 
-// export default mongoose.model<IUser & mongoose.Document>("User", UserSchema);
+});
+
+export default mongoose.model<IKeyword & mongoose.Document>("Keyword", KeywordSchema);

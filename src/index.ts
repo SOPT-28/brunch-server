@@ -9,8 +9,8 @@ app.use(express.urlencoded());
 app.use(express.json());
 
 // Define Routes
-// app.use("/api/articles", require("./api/articles"));
-// app.use("/api/keywords", require("./api/keywords"));
+app.use("/api/articles", require("./api/articles"));
+app.use("/api/keywords", require("./api/keywords"));
 // app.use("/api/search", require("./api/search"));
 // app.use("/api/writers", require("./api/writers"));
 
