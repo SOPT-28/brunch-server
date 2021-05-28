@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use("/api/articles", require("./api/articles"));
 app.use("/api/keywords", require("./api/keywords"));
-// app.use("/api/search", require("./api/search"));
+app.use("/api/search", require("./api/search"));
 app.use("/api/writers", require("./api/writers"));
 
 
