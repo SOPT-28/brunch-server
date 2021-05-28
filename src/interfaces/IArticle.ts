@@ -2,11 +2,11 @@ export interface IArticle {
   articleImg: string;
   title: string;
   description: string;
-  writtenBy: Date;
+  writtenBy: String;
 }
 export interface IArticleDTO {
     articleImg: string;
     title: string;
     description: string;
-    writtenBy: Date;
+    writtenBy: String;
   }
