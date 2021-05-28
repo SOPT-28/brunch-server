@@ -110,6 +110,5 @@ const WriterSchema = new mongoose.Schema({
             ]
         }
     ]
-})
-
+});
 export default mongoose.model<IWriterTag & mongoose.Document>("Writer", WriterSchema);
