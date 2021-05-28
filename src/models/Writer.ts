@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 import { IWriterTag } from "../interfaces/IWriterTag";
 
 const WriterSchema = new mongoose.Schema({
-    
     pet: [
         {
             profileImg: {

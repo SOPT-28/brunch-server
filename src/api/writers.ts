@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-
+const returnCode = require('../library/returnCode');
 const router = express.Router();
 import Writer from "../models/Writer";
 
@@ -15,15 +15,25 @@ router.get(
         try {
             const writer = await Writer.find() //find => 전체 정보, findOne => 전체 중 특정 값 조회
 
-            if(!writer) {
-              //  return res.status(400).json({ msg: "작가정보를 조회할 수 없습니다." });
+            if (!writer) {
+                res.status(400).json({
+                    status: returnCode.BAD_REQUEST,
+                    errors: [{ msg: "값을 불러오지 못했습니다." }],
+                });
             }
-            console.log(res.json(writer))
-            res.json(writer); //작가 정보를 응답으로 담아 보냄
-           // res.status(200).json({"success" : true, "msg" : "작가 정보 조회 성공!"});
+            res.status(200).json({
+                status: returnCode.OK,
+                msg: "작가 정보 조회에 성공했습니다.",
+                data: {
+                    writer,
+                  }
+              });
         } catch (error) {
             console.error(error.message);
-           // res.status(500).send("Server Error")
+            res.status(500).json({
+                status: returnCode.INTERNAL_SERVER_ERROR,
+                errors: [{ msg: "server error" }],
+             });
         }
     }
 );

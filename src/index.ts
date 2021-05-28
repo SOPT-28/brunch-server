@@ -9,10 +9,12 @@ connectDB();
 app.use(express.json());
 
 // Define Routes
- app.use("/api/writers", require("./api/writers"));
-// app.use("/api/keywords", require("./api/keywords"));
- //app.use("/api/search", require("./api/search"));
- //app.use("/api/writers", require("./api/writers"));
+
+app.use("/api/articles", require("./api/articles"));
+app.use("/api/keywords", require("./api/keywords"));
+// app.use("/api/search", require("./api/search"));
+// app.use("/api/writers", require("./api/writers"));
+
 
 // error handler
 app.use(function (err, req, res, next) {
