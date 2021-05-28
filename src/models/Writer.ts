@@ -1,27 +1,116 @@
-// import mongoose from "mongoose";
-// import { IUser } from "../interfaces/IUser";
+import mongoose from "mongoose";
+import { IWriterTag } from "../interfaces/IWriterTag";
 
-// const UserSchema = new mongoose.Schema({
-//   name: {
-//     type: String,
-//     required: true,
-//   },
-//   email: {
-//     type: String,
-//     required: true,
-//     unique: true,
-//   },
-//   password: {
-//     type: String,
-//     required: true,
-//   },
-//   avatar: {
-//     type: String,
-//   },
-//   date: {
-//     type: Date,
-//     default: Date.now,
-//   },
-// });
+const WriterSchema = new mongoose.Schema({
+    
+    pet: [
+        {
+            profileImg: {
+                type: String,
+                required: true,
+            },
+            writerName: {
+                type: String,
+                required: true,
+            },
+            writerJob: {
+                type: String,
+                required: true,
+            },
+            description: {
+                type: String,
+                required: true,
+            },
+            tags: [
+                {
+                    tag1: {
+                        type: String,
+                        required: true,
+                    },
+                    tag2: {
+                        type: String,
+                        required: true,        
+                    },
+                    tag3: {
+                        type: String,
+                        required: true,
+                    }
+                }
+            ]
+        }
+    ],
+    create: [
+        {
+            profileImg: {
+                type: String,
+                required: true,
+            },
+            writerName: {
+                type: String,
+                required: true,
+            },
+            writerJob: {
+                type: String,
+                required: true,
+            },
+            description: {
+                type: String,
+                required: true,
+            },
+            tags: [
+                {
+                    tag1: {
+                        type: String,
+                        required: true,
+                    },
+                    tag2: {
+                        type: String,
+                        required: true,        
+                    },
+                    tag3: {
+                        type: String,
+                        required: true,
+                    }
+                }
+            ]
+        }
+    ],
+    journey: [
+        {
+            profileImg: {
+                type: String,
+                required: true,
+            },
+            writerName: {
+                type: String,
+                required: true,
+            },
+            writerJob: {
+                type: String,
+                required: true,
+            },
+            description: {
+                type: String,
+                required: true,
+            },
+            tags: [
+                {
+                    tag1: {
+                        type: String,
+                        required: true,
+                    },
+                    tag2: {
+                        type: String,
+                        required: true,        
+                    },
+                    tag3: {
+                        type: String,
+                        required: true,
+                    }
+                }
+            ]
+        }
+    ]
+})
 
-// export default mongoose.model<IUser & mongoose.Document>("User", UserSchema);
+export default mongoose.model<IWriterTag & mongoose.Document>("Writer", WriterSchema);
