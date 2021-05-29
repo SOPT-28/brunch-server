@@ -20,7 +20,7 @@ import Article from "../models/Article";
         if (!articles) {
             res.status(400).json({
                 status: returnCode.BAD_REQUEST,
-                errors: [{ msg: "값을 불러오지 못했습니다." }],
+                msg: "값을 불러오지 못했습니다.",
             });
         }
 
@@ -35,7 +35,7 @@ import Article from "../models/Article";
         console.error(error.message);
         res.status(500).json({
             status: returnCode.INTERNAL_SERVER_ERROR,
-            errors: [{ msg: "server error" }],
+            msg: "서버오류",
          });
     }
   });

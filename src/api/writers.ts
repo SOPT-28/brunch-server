@@ -12,13 +12,14 @@ import Writer from "../models/Writer";
 router.get(
     "/",
     async (req: Request, res: Response) => {
+        
         try {
             const writer = await Writer.find() //find => 전체 정보, findOne => 전체 중 특정 값 조회
 
             if (!writer) {
                 res.status(400).json({
                     status: returnCode.BAD_REQUEST,
-                    errors: [{ msg: "값을 불러오지 못했습니다." }],
+                    msg: "값을 불러오지 못했습니다.",
                 });
             }
             res.status(200).json({
@@ -32,7 +33,7 @@ router.get(
             console.error(error.message);
             res.status(500).json({
                 status: returnCode.INTERNAL_SERVER_ERROR,
-                errors: [{ msg: "server error" }],
+                msg: "서버오류",
              });
         }
     }
