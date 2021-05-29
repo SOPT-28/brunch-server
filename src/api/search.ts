@@ -14,18 +14,14 @@ router.post(
     async (req: Request, res: Response) => {
 
         const { searchWord } = req.body; //바디 값
-        console.log("req.body", searchWord);
 
         try {
             const searchArticle = await Article.findOne({writtenBy: searchWord}); 
         
-
-            console.log(searchArticle)
-
             if (!searchArticle) {
                 res.status(400).json({
                     status: returnCode.BAD_REQUEST,
-                    errors: [{ msg: "검색에 실패했습니다." }],
+                    msg: "검색에 실패했습니다.",
                 });
             }
             res.status(200).json({
@@ -39,7 +35,7 @@ router.post(
             console.error(error.message);
             res.status(500).json({
                 status: returnCode.INTERNAL_SERVER_ERROR,
-                errors: [{ msg: "server error" }],
+                msg: "서버오류",
              });
         }
     }
