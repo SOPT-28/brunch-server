@@ -2,6 +2,11 @@ import express from "express";
 const app = express();
 import connectDB from "./loaders/db";
 
+
+// allow cors
+var cors = require('cors')();
+app.use(cors);
+
 // Connect Database
 connectDB();
 
